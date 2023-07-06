@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Crosser.EdgeNode.Common.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:Crosser.EdgeNode.Common.Abstractions.Models.IFlowMessage">
+            <summary>
+            This is a customized version of the .NET System.Dynamic.DynamicObject.
+            The object is mainly used to pass data between modules in a flow with the possibility to change/remove/add properties at runtime
+            </summary>
+            <example>
+            You can build any object by creating a new <see cref="T:Crosser.EdgeNode.Common.Abstractions.Models.IFlowMessage"/> as a dynamic and just set properties
+            <code>
+            dynamic d = new FlowMessage();
+            d.name = "Harry The Hippo";
+            d.age = 35;
+            </code>
+            You can also build object with dot-notation.
+            <code>
+            dynamic o = new FlowMessage();
+            p.person.name = "Harry The Hippo";
+            d.person.age = 35;
+            </code>
+            </example>
+        </member>
+        <member name="T:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2">
+            <summary>
+            A non-static generic repository for in-memory storage
+            </summary>
+            <typeparam name="TKey">Key Type</typeparam>
+            <typeparam name="TValue">Value Type</typeparam>
+        </member>
+        <member name="P:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.Container">
+            <summary>
+            The underlying dictionary holding keys/values
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.#ctor">
+            <summary>
+            Ctor for creating a new instance of a repository with key TK and value T
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Ctor with custom IEqualityComparer for the repository
+            </summary>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> to use with the repository</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.TryAdd(`0,`1)">
+            <summary>
+            Tries to add a key/value pair to the repository
+            </summary>
+            <param name="key">the generic key to add</param>
+            <param name="entity">the generic entity to add</param>
+            <returns>true if the operation was successful</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.TryGet(`0,`1@)">
+            <summary>
+            Tries to get a entity for the specified key
+            </summary>
+            <param name="key">the generic key to use in the lookup</param>
+            <param name="entity">the out parameter that will contain the value if found</param>
+            <returns>true if the key was in the repository</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.AddOrUpdate(`0,`1)">
+            <summary>
+            Adds or updates the entity T with key TK
+            </summary>
+            <param name="key">the generic key to use</param>
+            <param name="entity">the generic entity to add or update</param>
+            <returns>the generic entity that was added/updated</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.Remove(`0)">
+            <summary>
+            Removes the entity T with key TK
+            </summary>
+            <param name="key">the generic key to use in the lookup</param>
+            <returns>true if the entity was removed</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.Remove(System.Func{`1,System.Boolean})">
+            <summary>
+            Removes all entities matching the expression f
+            </summary>
+            <param name="f">the expression used to find matching entities</param>
+            <returns>the number of items removed</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.RemoveAll">
+            <summary>
+            Clears the repository
+            </summary>
+        </member>
+        <member name="P:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.Item(`0)">
+            <summary>
+            Getter/Setter by key indexer
+            </summary>
+            <param name="key">the generic key to use in get/set</param>
+            <returns>the value located</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.Where(System.Func{`1,System.Boolean})">
+            <summary>
+            Find all entities T matching the expression f
+            </summary>
+            <param name="f">the expression used to find matching entities</param>
+            <returns>all entities matching the expression</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.FindWithKeys(System.Func{`1,System.Boolean})">
+            <summary>
+            Find all entities T matching the expression f and returns a Dictionary TK,T
+            </summary>
+            <param name="f">the expression used to find matching entities</param>
+            <returns>all entities and keys matching the expression</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.GetAllWithKeys">
+            <summary>
+            Returns all entities as a Dictionary TK,T
+            </summary>
+            <returns>All values with keys</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.GetAll">
+            <summary>
+            Returns all entities T from the repository
+            </summary>
+            <returns>All values in the repository</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.GetById(`0)">
+            <summary>
+            Get a single entity T with the key TK
+            </summary>
+            <param name="key">the generic key to use in the lookup</param>
+            <returns>The value matching the key. If not found the default value of TValue will be returned</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.GetByIdWithKey(`0)">
+            <summary>
+            Get a single entity T as a KeyValuePair TK,T with the key TK
+            </summary>
+            <param name="key">the generic key to use in the lookup</param>
+            <returns>the value and key found. If there was no match the key is returned with the default value of TValue</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.ContainsKey(`0)">
+            <summary>
+            Checks if the repository has a key TK
+            </summary>
+            <param name="key">the generic key to use in the lookup</param>
+            <returns>true if the key exists in the repository</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.Any">
+            <summary>
+            Check if the repository has any items at all
+            </summary>
+            <returns>true if the collection has at least 1 item</returns>
+        </member>
+        <member name="P:Crosser.EdgeNode.Common.Abstractions.Utilities.Persistence.RepositoryInstance`2.Count">
+            <summary>
+            Get the number of elements in the repository
+            </summary>
+            <returns>The number of elements in the repository</returns>
+        </member>
+        <member name="T:Crosser.EdgeNode.Common.Abstractions.Utilities.Serialization.IJsonSerializer">
+            <summary>
+            Interface for Json Serialization.
+            If you implement a custom serializer this is the interface to use
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Serialization.IJsonSerializer.Deserialize(System.Byte[],System.Type)">
+            <summary>
+            Deserialize from byte[] to Type
+            </summary>
+            <param name="o">byte array</param>
+            <param name="t">Target type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Serialization.IJsonSerializer.Deserialize(System.String,System.Type)">
+            <summary>
+            Deserialize from string to Type
+            </summary>
+            <param name="json">JSON string</param>
+            <param name="t">Target type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Serialization.IJsonSerializer.Deserialize``1(System.Byte[])">
+            <summary>
+            Deserialize from byte[] to TTarget
+            </summary>
+            <typeparam name="TTarget">Target type</typeparam>
+            <param name="o">byte array</param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Serialization.IJsonSerializer.Deserialize``1(System.String)">
+            <summary>
+            Deserialize from string to TTarget
+            </summary>
+            <typeparam name="TTarget">Target type</typeparam>
+            <param name="json">JSON string</param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Serialization.IJsonSerializer.DeserializeFromString(System.String,System.String,System.Type,System.Object)">
+            <summary>
+            Deserialize JSON string into object of a specific Type and name.
+            Can set default value if needed
+            </summary>
+            <param name="json">JSON string</param>
+            <param name="parameterName">Name of parameter</param>
+            <param name="parameterType">Type of parameter</param>
+            <param name="defaultValue">The default value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Serialization.IJsonSerializer.DeserializeTyped(System.String)">
+            <summary>
+            Deserialize JSON string into correct types instead of JObject.
+            </summary>
+            <param name="json">JSON string</param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Serialization.IJsonSerializer.Serialize(System.Object)">
+            <summary>
+            Serialize object to JSON string
+            </summary>
+            <param name="o">object</param>
+            <returns>JSON string</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Serialization.IJsonSerializer.Serialize(System.Object,System.Type)">
+            <summary>
+             Serialize object of a specific Type to a JSON string
+            </summary>
+            <param name="o"></param>
+            <param name="t"></param>
+            <returns>JSON string</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Abstractions.Utilities.Serialization.IJsonSerializer.Serialize``1(``0)">
+            <summary>
+             Serialize object TSource JSON string
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="o"></param>
+            <returns>JSON string</returns>
+        </member>
+    </members>
+</doc>

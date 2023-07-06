@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Crosser.EdgeNode.Flows</name>
+    </assembly>
+    <members>
+        <member name="T:Crosser.EdgeNode.Flows.FlowModuleWithoutSettings">
+            <summary>
+            Use this when a module have no specific settings. This will populate the module with the default settings for filters etc
+            </summary>
+        </member>
+        <member name="T:Crosser.EdgeNode.Flows.FlowModule">
+            <summary>
+            Base class for all modules.
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule.#ctor(Crosser.EdgeNode.Flows.FlowModuleType)">
+            <summary>
+            Constructor for FlowModule
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule.Receive(Crosser.EdgeNode.Common.Abstractions.Models.IFlowMessage)">
+            <summary>
+            Passing data to this will flag the module to process the message.
+            In most cases this will be done by the flow-engine or the flow but in special cases you can call this manually to trigger the processing of a message
+            </summary>
+            <param name="msg">The <see cref="T:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage" /> passed into the module </param>
+            <returns>
+            An awaitable Task
+            </returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule.ReceiveFrom(Crosser.EdgeNode.Flows.Abstractions.IFlowModule,System.Int32)">
+            <summary>
+            Will register the module passed in as a receiver from this module.
+            The module will will be registered at output index 0 by default
+            </summary>
+            <param name="module">The module to receive data</param>
+            <param name="ix">The output-index to register the module on</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule.SendTo(Crosser.EdgeNode.Flows.Abstractions.IFlowModule,System.Int32)">
+            <summary>
+            Will pass messages this module to the module passed in
+            </summary>
+            <param name="module">The module that will receive the data</param>
+            <param name="ix">The output index to add the module to</param>
+            <returns>
+            The module that will receive the data (the module passed in)
+            </returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule.SetStatus(Crosser.EdgeNode.Flows.Status)">
+            <summary>
+            Set the <see cref="P:Crosser.EdgeNode.Flows.FlowModule.Status" /> of the module. If the current status is different the OnStatusChanged event will be triggered.
+            </summary>
+            <param name="status">The new <see cref="P:Crosser.EdgeNode.Flows.FlowModule.Status" /></param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule.SetStatus(Crosser.EdgeNode.Flows.Status,System.String)">
+            <summary>
+            Set the <see cref="P:Crosser.EdgeNode.Flows.FlowModule.Status" /> of the module. If the current status is different the OnStatusChanged event will be triggered.
+            </summary>
+            <param name="status">The new <see cref="P:Crosser.EdgeNode.Flows.FlowModule.Status" /></param>
+            <param name="message">The message to attach to the <see cref="T:Crosser.EdgeNode.Flows.Abstractions.FlowStatusEvent" /></param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule.SetStatus(Crosser.EdgeNode.Flows.Status,System.String,System.Boolean)">
+            <summary>
+            Set the <see cref="P:Crosser.EdgeNode.Flows.FlowModule.Status" /> of the module. If the current status is different the OnStatusChanged event will be triggered.
+            </summary>
+            <param name="status">The new <see cref="P:Crosser.EdgeNode.Flows.FlowModule.Status" /></param>
+            <param name="message">The message to attach to the <see cref="T:Crosser.EdgeNode.Flows.Abstractions.FlowStatusEvent" /></param>
+            <param name="force">Pass true to force the OnStatusChanged event to be triggered regardless of current status</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule.MessageReceived(Crosser.EdgeNode.Common.Abstractions.Models.IFlowMessage)">
+            <summary>
+            Implement this method in your custom modules to implement logic for the <see cref="T:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage" /> passing through the module.
+            If you want to pass data to the next <see cref="T:Crosser.EdgeNode.Flows.Abstractions.IFlowModule" /> you should call <see cref="M:Crosser.EdgeNode.Flows.FlowModule.Next(Crosser.EdgeNode.Common.Abstractions.Models.IFlowMessage[])" /> in this method
+            </summary>
+            <param name="msg">The <see cref="T:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage" /> passed into the module </param>
+            <returns>
+            An awaitable Task
+            </returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule.Next(Crosser.EdgeNode.Common.Abstractions.Models.IFlowMessage[])">
+            <summary>
+            When you want to pass the message(s) to the next module(s) in the.
+            This should be called from the <see cref="M:Crosser.EdgeNode.Flows.FlowModule.MessageReceived(Crosser.EdgeNode.Common.Abstractions.Models.IFlowMessage)"/> method.
+            </summary>
+            <param name="messages">The parameter is 0 to n <see cref="T:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage" />"</param>
+            <returns>
+            An awaitable Task
+            </returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule.Initialize">
+            <summary>
+            This method will be called when the flow is about to be started, but before the call to <see cref="M:Crosser.EdgeNode.Flows.FlowModule.Start" />
+            </summary>
+            <returns>
+            An awaitable Task
+            </returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule.Start">
+            <summary>
+            This method will be called when the flow is about to be started, but after the call to <see cref="M:Crosser.EdgeNode.Flows.FlowModule.Initialize" />
+            </summary>
+            <returns>
+            A <see cref="T:Crosser.EdgeNode.Common.Abstractions.Utilities.Errors.IError" /> describing the error. If null there was no error.
+            </returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule.Stop">
+            <summary>
+            This method will be called when the flow is about to be stopped.
+            </summary>
+            <returns>
+            An awaitable Task
+            </returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule.CanStart">
+            <summary>
+            Implement in your module class. This will be called before the call to <see cref="M:Crosser.EdgeNode.Flows.FlowModule.Start" /> is made, but after the call to <see cref="M:Crosser.EdgeNode.Flows.FlowModule.Initialize" />
+            </summary>
+            <returns>
+            Null if the module can start, otherwise an IError.
+            </returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule.SetMetadataDefaults">
+            <summary>
+            Sets default value for metadata, such as type, x/y coordinates etc.
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule.SetMetadataValue(System.String,System.Object,System.Boolean)">
+            <summary>
+            Write a metadata value into the key/value storage
+            </summary>
+            <param name="key">the key as a string</param>
+            <param name="value">object to store</param>
+            <param name="force">pass in true to override previous value</param>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.FlowContext">
+            <summary>
+            Reference to the flow specific context that the module belongs to
+            </summary>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.Metadata">
+            <summary>
+            Metadata for this module
+            </summary>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.ModuleType">
+            <summary>
+            The module type implemented. See <see cref="P:Crosser.EdgeNode.Flows.FlowModule.ModuleType" />
+            </summary>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.ModuleProtocol">
+            <summary>
+            If the module uses a specific protocol for communication is should be registered here to make routers able to locate the module
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.Topic">
+            <summary>
+            To get the topic for routing modules. This setting should be refactored with the ModuleType later on.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.Name">
+            <summary>
+            Name of the module at runtime (set by users using the module in the flow)
+            </summary>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.UserFriendlyName">
+            <summary>
+            Name to present to users
+            </summary>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.Categories">
+            <summary>
+            Sets the tags to be able to group modules together representing similar functionality
+            </summary>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.HasInput">
+            <summary>
+            If true you can pass data to this module
+            </summary>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.HasOutput">
+            <summary>
+            if <see cref="P:Crosser.EdgeNode.Flows.FlowModule.Outputs" /> Count is > 0 this will be true
+            </summary>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.HaltOnError">
+            <summary>
+            If true the module and flow will be stopped when <see cref="P:Crosser.EdgeNode.Flows.FlowModule.OnError" /> is called
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.Disabled">
+            <summary>
+            If true the module will ignore messages coming in
+            </summary>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.NrOfOutputs">
+            <summary>
+            The available number of outputs from the module
+            </summary>
+            <remarks>
+            <para>Each output can have several modules connected to it</para>
+            </remarks>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.MaxNrOfOutputs">
+            <summary>
+            The maximum number of outputs for the module, defaults to 1 so set this in your custom module if needed
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.Debug">
+            <summary>
+            If true the module will log messages in/out from the module.
+            Note that the log will use Verbose level
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.Outputs">
+            <summary>
+            The actual outputs from the module
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.FlowId">
+            <summary>
+            Id of the flow that the module belongs to
+            </summary>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.FlowModule.Id">
+            <summary>
+            Unique Id for the module instance
+            </summary>
+        </member>
+        <member name="T:Crosser.EdgeNode.Flows.FlowModule`1">
+            <summary>
+            Base class for all modules with settings.
+            </summary>
+            <typeparam name="TSettings">The class to use as settings for the module</typeparam>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule`1.#ctor(Crosser.EdgeNode.Flows.FlowModuleType)">
+            <summary>
+            Constructor for <see cref="T:Crosser.EdgeNode.Flows.FlowModule`1" />
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.FlowModule`1.AllowMessageToEnterModule(Crosser.EdgeNode.Common.Abstractions.Models.IFlowMessage)">
+            <summary>
+            Get the setting class for the module
+            </summary>
+            <returns>
+            The settings class of the type passed in as generic <see cref="T:Crosser.EdgeNode.Flows.FlowModule`1" />
+            </returns>
+        </member>
+        <member name="T:Crosser.EdgeNode.Flows.Models.Measurement">
+            <summary>
+            Measurement base for timeseries
+            </summary>
+        </member>
+        <member name="T:Crosser.EdgeNode.Flows.Utilities.Serialization.InternalJsonSerializer">
+            <summary>
+            The default JSON serializer
+            </summary>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.Utilities.Serialization.InternalJsonSerializer.SerializerSettings">
+            <summary>
+            JSON.NET settings
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Utilities.Serialization.InternalJsonSerializer.#cctor">
+            <summary>
+            Static Ctor
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Utilities.Serialization.InternalJsonSerializer.Deserialize(System.String,System.Type)">
+            <summary>
+            Deserialize from string to Type
+            </summary>
+            <param name="json">JSON string</param>
+            <param name="t">Target type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Utilities.Serialization.InternalJsonSerializer.Deserialize(System.Byte[],System.Type)">
+            <summary>
+            Deserialize from byte[] to Type
+            </summary>
+            <param name="o">byte array</param>
+            <param name="t">Target type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Utilities.Serialization.InternalJsonSerializer.Deserialize``1(System.String)">
+            <summary>
+            Deserialize from string to TTarget
+            </summary>
+            <typeparam name="TTarget">Target type</typeparam>
+            <param name="json">JSON string</param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Utilities.Serialization.InternalJsonSerializer.Deserialize``1(System.Byte[])">
+            <summary>
+            Deserialize from byte[] to TTarget
+            </summary>
+            <typeparam name="TTarget">Target type</typeparam>
+            <param name="o">byte array</param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Utilities.Serialization.InternalJsonSerializer.Serialize(System.Object)">
+            <summary>
+            Serialize object to JSON string
+            </summary>
+            <param name="o">object</param>
+            <returns>JSON string</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Utilities.Serialization.InternalJsonSerializer.Serialize(System.Object,System.Type)">
+            <summary>
+             Serialize object of a specific Type to a JSON string
+            </summary>
+            <param name="o"></param>
+            <param name="t"></param>
+            <returns>JSON string</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Utilities.Serialization.InternalJsonSerializer.Serialize``1(``0)">
+            <summary>
+             Serialize object TSource JSON string
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="o"></param>
+            <returns>JSON string</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Utilities.Serialization.InternalJsonSerializer.DeserializeFromString(System.String,System.String,System.Type,System.Object)">
+            <summary>
+            Deserialize JSON string into object of a specific Type and name.
+            Can set default value if needed
+            </summary>
+            <param name="json">JSON string</param>
+            <param name="parameterName">Name of parameter</param>
+            <param name="parameterType">Type of parameter</param>
+            <param name="defaultValue">The default value</param>
+            <returns></returns>
+        </member>
+        <member name="T:Crosser.EdgeNode.FlowsEngine.Models.DataFormat">
+            <summary>
+            The format of the data
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.FlowsEngine.Models.DataFormat.Raw">
+            <summary>
+            No formatting will be applied
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.FlowsEngine.Models.DataFormat.JSON">
+            <summary>
+            Will format the data from JSON
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.FlowsEngine.Models.DataFormat.XML">
+            <summary>
+            Will format the data from XML
+            </summary>
+        </member>
+    </members>
+</doc>

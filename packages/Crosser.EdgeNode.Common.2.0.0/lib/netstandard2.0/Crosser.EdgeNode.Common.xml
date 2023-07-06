@@ -1,0 +1,317 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Crosser.EdgeNode.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Crosser.EdgeNode.Common.Utilities.Binary.BinaryHelpers">
+            <summary>
+            Helpers for binary operations
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Binary.BinaryHelpers.ToUTF8String(System.Byte[])">
+            <summary>
+            Convert byte array to UTF8 string
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Binary.BinaryHelpers.ToUTF8String(System.Collections.Generic.List{System.Byte})">
+            <summary>
+            Convert a list of byte to UTF8 string
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Binary.BinaryHelpers.ToUTF8Bytes(System.String)">
+            <summary>
+            Convert a string to a byte array
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Binary.BinaryHelpers.ToHexString(System.Byte[],System.Boolean)">
+            <summary>
+            Convert byte array to hex string
+            </summary>
+            <param name="data"></param>
+            <param name="uppercase"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog">
+            <summary>
+            Default logger, will get the exported Serilog configuration and use that
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.LogSwitch">
+            <summary>
+            The log-switch can be used to change <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel"/> at runtime.
+            Change by calling <see cref="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.SetLogEventLevel(Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel)"/>
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.LevelEnabled(Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel)">
+            <summary>
+            Check if a specific <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel"/> is enabled
+            </summary>
+            <param name="level">the <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel"/> to check</param>
+            <returns>True if the <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel"/> is enabled</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.GetLogEventLevel">
+            <summary>
+            Return the current <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel"/>
+            </summary>
+            <returns>The current <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel"/></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.SetLogEventLevel(Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel)">
+            <summary>
+            Sets the <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel"/>
+            </summary>
+            <param name="level">The <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel"/> to enable</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.#ctor(Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="level">The default <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel"/></param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.Verbose(System.String,System.Object[])">
+            <summary>
+            Log to Serilog sinks using the verbose level
+            </summary>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.Verbose(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log to Serilog sinks using the verbose level
+            </summary>
+            <param name="ex">Exception</param>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.Debug(System.String,System.Object[])">
+            <summary>
+            Log to Serilog sinks using the debug level
+            </summary>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.Debug(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log to Serilog sinks using the debug level
+            </summary>
+            <param name="ex">Exception</param>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.Information(System.String,System.Object[])">
+            <summary>
+            Log to Serilog sinks using the information level
+            </summary>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.Information(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log to Serilog sinks using the information level
+            </summary>
+            <param name="ex">Exception</param>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.Warning(System.String,System.Object[])">
+            <summary>
+            Log to Serilog sinks using the warning level
+            </summary>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.Warning(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log to Serilog sinks using the warning level
+            </summary>
+            <param name="ex">Exception</param>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.Error(System.String,System.Object[])">
+            <summary>
+            Log to Serilog sinks using the error level
+            </summary>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.Error(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log to Serilog sinks using the error level
+            </summary>
+            <param name="ex">Exception</param>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.Fatal(System.String,System.Object[])">
+            <summary>
+            Log to Serilog sinks using the fatal level
+            </summary>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.DefaultLog.Fatal(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log to Serilog sinks using the fatal level
+            </summary>
+            <param name="ex">Exception</param>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="T:Crosser.EdgeNode.Common.Utilities.Logger.ILog">
+            <summary>
+            Implement this interface to create a custom logger.
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.SetLogEventLevel(Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel)">
+            <summary>
+            Sets the loggers <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel"/>
+            </summary>
+            <param name="level">The <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel"/> to set</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.GetLogEventLevel">
+            <summary>
+            Returns the <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel"/> of the <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.ILog"/>
+            </summary>
+            <returns>Current <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel"/></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.Verbose(System.String,System.Object[])">
+            <summary>
+            Log to the underlying logger using the verbose level
+            </summary>
+            <param name="template">Log template</param>
+            <param name="parmeters">Log parameters</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.Verbose(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log to the underlying logger using the verbose level
+            </summary>
+            <param name="ex">Exception</param>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.Debug(System.String,System.Object[])">
+            <summary>
+            Log to the underlying logger using the debug level
+            </summary>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.Debug(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log to the underlying logger using the debug level
+            </summary>
+            <param name="ex">Exception</param>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.Information(System.String,System.Object[])">
+            <summary>
+            Log to the underlying logger using the information level
+            </summary>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.Information(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log to the underlying logger using the information level
+            </summary>
+            <param name="ex">Exception</param>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.Warning(System.String,System.Object[])">
+            <summary>
+            Log to the underlying logger using the warning level
+            </summary>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.Warning(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log to the underlying logger using the warning level
+            </summary>
+            <param name="ex">Exception</param>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.Error(System.String,System.Object[])">
+            <summary>
+            Log to the underlying logger using the error level
+            </summary>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.Error(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log to the underlying logger using the error level
+            </summary>
+            <param name="ex">Exception</param>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.Fatal(System.String,System.Object[])">
+            <summary>
+            Log to the underlying logger using the fatal level
+            </summary>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.Fatal(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log to the underlying logger using the fatal level
+            </summary>
+            <param name="ex">Exception</param>
+            <param name="template">Log template</param>
+            <param name="parmeters">Parameters to apply to template</param>
+        </member>
+        <member name="M:Crosser.EdgeNode.Common.Utilities.Logger.ILog.LevelEnabled(Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel)">
+            <summary>
+            Check if the <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel"/> is enabled
+            </summary>
+            <param name="level">Level to check</param>
+            <returns>True if the <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel"/> is enabled</returns>
+        </member>
+        <member name="T:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel">
+            <summary>
+            Represents the severity of a message written to the <see cref="T:Crosser.EdgeNode.Common.Utilities.Logger.ILog" />
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel.Verbose">
+            <summary>
+            tracing information and debugging minutiae; generally only switched on in unusual situations
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel.Debug">
+            <summary>
+            internal control flow and diagnostic state dumps to facilitate pinpointing of recognized problems
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel.Information">
+            <summary>
+            events of interest or that have relevance to outside observers; the default enabled minimum logging level
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel.Warning">
+            <summary>
+            indicators of possible issues or service/functionality degradation
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel.Error">
+            <summary>
+            indicating a failure within the application or connected system
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Common.Utilities.Logger.LogEventLevel.Fatal">
+            <summary>
+            critical errors causing complete failure of the application
+            </summary>
+        </member>
+    </members>
+</doc>

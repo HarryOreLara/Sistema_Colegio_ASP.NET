@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Crosser.EdgeNode.Flows.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:Crosser.EdgeNode.Flows.Abstractions.FlowModuleCommonSettings">
+            <summary>
+            Common settings for all modules
+            </summary>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.Abstractions.FlowModuleCommonSettings.TimeSeriesProperties">
+            <summary>
+            All properties defined in the list will be used in remote session to send statistics to UI
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Abstractions.FlowModuleCommonSettings.Validate(Crosser.EdgeNode.Common.Abstractions.Utilities.Validation.SettingsValidator)">
+            <summary>
+            If validation is needed overwrite this method
+            </summary>
+            <param name="validator"></param>
+        </member>
+        <member name="T:Crosser.EdgeNode.Flows.Abstractions.FlowModuleSettings">
+            <summary>
+            Inherit this class when creating settings for your module
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Abstractions.FlowModuleSettings.Validate(Crosser.EdgeNode.Common.Abstractions.Utilities.Validation.SettingsValidator)">
+            <summary>
+            If validation is needed overwrite this method
+            </summary>
+            <param name="validator"></param>
+        </member>
+        <member name="T:Crosser.EdgeNode.Flows.Abstractions.FlowState">
+            <summary>
+            Describes the current state for a flow
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Flows.Abstractions.FlowState.Stopped">
+            <summary>
+            The flow is not started yet, or has been stopped
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Flows.Abstractions.FlowState.Stopping">
+            <summary>
+            The flow is stopping all the modules in the flow
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Flows.Abstractions.FlowState.Starting">
+            <summary>
+            The flow is starting all the modules in the flow
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Flows.Abstractions.FlowState.Started">
+            <summary>
+            The flow is successfully started
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Flows.Abstractions.FlowState.Failed">
+            <summary>
+            The flow failed to start
+            </summary>
+        </member>
+        <member name="T:Crosser.EdgeNode.Flows.Abstractions.IFlowModule">
+            <summary>
+            Base class for all modules.
+            </summary>
+        </member>
+        <member name="T:Crosser.EdgeNode.Flows.Abstractions.Models.CodeGlobals">
+            <summary>
+            Globals for sending in parameters to the compiled script
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Flows.Abstractions.Models.CodeGlobals.msg">
+            <summary>
+            Dynamic to pass a <see cref="T:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage" /> into the script as a parameter
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Flows.Abstractions.Models.CodeGlobals.flowContext">
+            <summary>
+            Provides access to flowContext within the script
+            </summary>
+        </member>
+        <member name="T:Crosser.EdgeNode.Flows.Abstractions.Models.Messaging.InternalJsonSerializer">
+            <summary>
+            The default JSON serializer
+            </summary>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.Abstractions.Models.Messaging.InternalJsonSerializer.SerializerSettings">
+            <summary>
+            JSON.NET settings
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Abstractions.Models.Messaging.InternalJsonSerializer.#cctor">
+            <summary>
+            Static Ctor
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Abstractions.Models.Messaging.InternalJsonSerializer.Deserialize(System.String,System.Type)">
+            <summary>
+            Deserialize from string to Type
+            </summary>
+            <param name="json">JSON string</param>
+            <param name="t">Target type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Abstractions.Models.Messaging.InternalJsonSerializer.Deserialize(System.Byte[],System.Type)">
+            <summary>
+            Deserialize from byte[] to Type
+            </summary>
+            <param name="o">byte array</param>
+            <param name="t">Target type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Abstractions.Models.Messaging.InternalJsonSerializer.Deserialize``1(System.String)">
+            <summary>
+            Deserialize from string to TTarget
+            </summary>
+            <typeparam name="TTarget">Target type</typeparam>
+            <param name="json">JSON string</param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Abstractions.Models.Messaging.InternalJsonSerializer.Deserialize``1(System.Byte[])">
+            <summary>
+            Deserialize from byte[] to TTarget
+            </summary>
+            <typeparam name="TTarget">Target type</typeparam>
+            <param name="o">byte array</param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Abstractions.Models.Messaging.InternalJsonSerializer.Serialize(System.Object)">
+            <summary>
+            Serialize object to JSON string
+            </summary>
+            <param name="o">object</param>
+            <returns>JSON string</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Abstractions.Models.Messaging.InternalJsonSerializer.Serialize(System.Object,System.Type)">
+            <summary>
+             Serialize object of a specific Type to a JSON string
+            </summary>
+            <param name="o"></param>
+            <param name="t"></param>
+            <returns>JSON string</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Abstractions.Models.Messaging.InternalJsonSerializer.Serialize``1(``0)">
+            <summary>
+             Serialize object TSource JSON string
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="o"></param>
+            <returns>JSON string</returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Abstractions.Models.Messaging.InternalJsonSerializer.DeserializeFromString(System.String,System.String,System.Type,System.Object)">
+            <summary>
+            Deserialize JSON string into object of a specific Type and name.
+            Can set default value if needed
+            </summary>
+            <param name="json">JSON string</param>
+            <param name="parameterName">Name of parameter</param>
+            <param name="parameterType">Type of parameter</param>
+            <param name="defaultValue">The default value</param>
+            <returns></returns>
+        </member>
+        <member name="T:Crosser.EdgeNode.Flows.FlowModuleType">
+            <summary>
+            For knowing what type of module this is
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Flows.FlowModuleType.Input">
+            <summary>
+            This type receives the first message or generate messages
+            </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Flows.FlowModuleType.Output">
+             <summary>
+             This type receives the last message in the flow
+            
+             </summary>
+        </member>
+        <member name="F:Crosser.EdgeNode.Flows.FlowModuleType.Function">
+            <summary>
+            This type receives data and acts on it and pass it on to the next module in the flow
+            </summary>
+        </member>
+        <member name="T:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage">
+            <summary>
+            This is a customized version of the .NET System.Dynamic.DynamicObject.
+            The object is mainly used to pass data between modules in a flow with the possibility to change/remove/add properties at runtime
+            </summary>
+            <example>
+            You can build any object by creating a new <see cref="T:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage"/> as a dynamic and just set properties
+            <code>
+            dynamic d = new ExpandoMessage();
+            d.name = "Harry The Hippo";
+            d.age = 35;
+            </code>
+            You can also build object with dot-notation.
+            <code>
+            dynamic o = new ExpandoMessage();
+            p.person.name = "Harry The Hippo";
+            d.person.age = 35;
+            </code>
+            </example>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage.Properties">
+            <summary>
+            Properties dynamically added to the object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage.#ctor">
+             <summary>
+             This constructor just works off the internal dictionary and any
+             public properties of this object.
+            
+             Note you can subclass Expando.
+             </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage.Clone">
+            <summary>
+            Will return a new ExpandoMessage based on the properties dynamically added to the current object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+            <summary>
+            Try to retrieve a member by name first from instance properties
+            followed by the collection entries.
+            </summary>
+            <param name="binder"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage.TrySetMember(System.Dynamic.SetMemberBinder,System.Object)">
+            <summary>
+            Will set <see cref="P:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage.Properties" /> binder.Name  to the value passed in
+            </summary>
+            <param name="binder"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage.Item(System.String)">
+             <summary>
+             Convenience method that provides a string Indexer
+             to the Properties collection AND the strongly typed
+             properties of the object by name.
+            
+             // dynamic
+             exp["Address"] = "112 nowhere lane";
+             // strong
+             var name = exp["StronglyTypedProperty"] as string;
+             </summary>
+             <remarks>
+             The getter checks the Properties dictionary first
+             then looks in PropertyInfo for properties.
+             The setter checks the instance properties before
+             checking the Properties dictionary.
+             </remarks>
+             <param name="key"></param>
+            
+             <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage.GetProperties">
+            <summary>
+            Returns and the properties of
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage.HasOwnProperty(System.String)">
+            <summary>
+            Check if the object has a property with a specific name defined
+            </summary>
+            <param name="name">The property-name to look for</param>
+            <returns></returns>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage.HasOwnProperty``1(System.String)">
+            <summary>
+            Check if the object has a property with a specific name and type defined
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+            <typeparam name="T">The expected type of the property</typeparam>
+        </member>
+        <member name="T:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessageExtensions">
+            <summary>
+            Helpers for <see cref="T:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage" />
+            </summary>
+        </member>
+        <member name="M:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessageExtensions.ToFlowMessage(System.Object)">
+            <summary>
+            Converts an object into a <see cref="T:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage" />
+            </summary>
+            <param name="obj">the object to convert to a <see cref="T:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage" /></param>
+            <returns>
+            A new  <see cref="T:Crosser.EdgeNode.Flows.Models.Abstractions.Models.FlowMessage" />
+            </returns>
+        </member>
+    </members>
+</doc>

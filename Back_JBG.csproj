@@ -1,0 +1,1061 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E9FFDE31-6C23-421E-ACE1-0AA1B999F351}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Back_JBG</RootNamespace>
+    <AssemblyName>Back_JBG</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44382</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Crosser.EdgeNode.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Crosser.EdgeNode.Common.2.0.0\lib\netstandard2.0\Crosser.EdgeNode.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Crosser.EdgeNode.Common.Abstractions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Crosser.EdgeNode.Common.Abstractions.2.0.0\lib\netstandard2.0\Crosser.EdgeNode.Common.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Crosser.EdgeNode.Core.Abstractions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Crosser.EdgeNode.Core.Abstractions.2.0.0\lib\netstandard2.0\Crosser.EdgeNode.Core.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Crosser.EdgeNode.Flows, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Crosser.EdgeNode.Flows.2.0.0\lib\netstandard2.0\Crosser.EdgeNode.Flows.dll</HintPath>
+    </Reference>
+    <Reference Include="Crosser.EdgeNode.Flows.Abstractions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Crosser.EdgeNode.Flows.Abstractions.2.0.0\lib\netstandard2.0\Crosser.EdgeNode.Flows.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Crosser.EdgeNode.Modules.IronPython, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Crosser.EdgeNode.Modules.IronPython.2.0.0\lib\netstandard2.0\Crosser.EdgeNode.Modules.IronPython.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython, Version=3.4.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>packages\IronPython.3.4.0\lib\net462\IronPython.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.Modules, Version=3.4.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>packages\IronPython.3.4.0\lib\net462\IronPython.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.SQLite, Version=3.4.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>packages\IronPython.3.4.0\lib\net462\IronPython.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.Wpf, Version=3.4.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>packages\IronPython.3.4.0\lib\net462\IronPython.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.DotNet.PlatformAbstractions.2.1.0\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamic, Version=1.3.3.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>packages\DynamicLanguageRuntime.1.3.3\lib\net452\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.2.2.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyModel.2.1.0\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting, Version=1.3.3.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>packages\DynamicLanguageRuntime.1.3.3\lib\net452\Microsoft.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting.Metadata, Version=1.3.3.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>packages\DynamicLanguageRuntime.1.3.3\lib\net452\Microsoft.Scripting.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="NJsonSchema, Version=9.13.17.0, Culture=neutral, PublicKeyToken=c2f9c3bdfae56102, processorArchitecture=MSIL">
+      <HintPath>packages\NJsonSchema.9.13.17\lib\net45\NJsonSchema.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>packages\Serilog.2.8.0\lib\net46\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Console, Version=3.1.1.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>packages\Serilog.Sinks.Console.3.1.1\lib\net45\Serilog.Sinks.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>packages\Serilog.Sinks.File.3.2.0\lib\net45\Serilog.Sinks.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.RollingFile, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>packages\Serilog.Sinks.RollingFile.3.3.0\lib\net45\Serilog.Sinks.RollingFile.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Cors.5.2.9\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Core.5.2.9\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Cors.5.2.9\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ApoderadoController.cs" />
+    <Compile Include="Controllers\ApoderadoSearchController.cs" />
+    <Compile Include="Controllers\AsistenciaController.cs" />
+    <Compile Include="Controllers\AsistenciaSearchController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\DocenteController.cs" />
+    <Compile Include="Controllers\EstudianteController.cs" />
+    <Compile Include="Controllers\GradoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MateriaController.cs" />
+    <Compile Include="Controllers\SeccionController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Clases\Apoderados\ApoderadoMostrar.cs" />
+    <Compile Include="Models\Clases\Apoderados\Apoderados.cs" />
+    <Compile Include="Models\Clases\Asistencias\Asistencia.cs" />
+    <Compile Include="Models\Clases\Asistencias\AsistenciaPrincipal.cs" />
+    <Compile Include="Models\Clases\Asistencias\AsistenciaScript.cs" />
+    <Compile Include="Models\Clases\Auth\Auth.cs" />
+    <Compile Include="Models\Clases\Auth\SubClases.cs" />
+    <Compile Include="Models\Clases\Docentes\Docente.cs" />
+    <Compile Include="Models\Clases\Estudiantes\Estudiante.cs" />
+    <Compile Include="Models\Clases\Estudiantes\EstudianteMostrar.cs" />
+    <Compile Include="Models\Clases\Funciones\Funciones.cs" />
+    <Compile Include="Models\Clases\GradosSecciones\Grado.cs" />
+    <Compile Include="Models\Clases\GradosSecciones\Seccion.cs" />
+    <Compile Include="Models\Clases\Meterias\Materia.cs" />
+    <Compile Include="Models\Clases\Response\Response.cs" />
+    <Compile Include="Models\Clases\Seguridad\Security.cs" />
+    <Compile Include="Models\Clases\Usuarios\Generador.cs" />
+    <Compile Include="Models\Clases\Usuarios\Usuario.cs" />
+    <Compile Include="Models\Gestores\GestorApoderado\GestorApoderado.cs" />
+    <Compile Include="Models\Gestores\GestorAsistencia\GestorAsistencia.cs" />
+    <Compile Include="Models\Gestores\GestorAuth\GestorAuth.cs" />
+    <Compile Include="Models\Gestores\GestorDocente\GestorDocente.cs" />
+    <Compile Include="Models\Gestores\GestorEstudiante\GestorEstudiante.cs" />
+    <Compile Include="Models\Gestores\GestorMateria\GestorMateria.cs" />
+    <Compile Include="Models\Gestores\GestorSeccionGrado\GestorGrado.cs" />
+    <Compile Include="Models\Gestores\GestorSeccionGrado\GestorSeccion.cs" />
+    <Compile Include="Models\Gestores\GestorUsuario\GestorUsuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="lib\abc.py" />
+    <Content Include="lib\aifc.py" />
+    <Content Include="lib\antigravity.py" />
+    <Content Include="lib\argparse.py" />
+    <Content Include="lib\ast.py" />
+    <Content Include="lib\asynchat.py" />
+    <Content Include="lib\asyncio\base_events.py" />
+    <Content Include="lib\asyncio\base_subprocess.py" />
+    <Content Include="lib\asyncio\compat.py" />
+    <Content Include="lib\asyncio\constants.py" />
+    <Content Include="lib\asyncio\coroutines.py" />
+    <Content Include="lib\asyncio\events.py" />
+    <Content Include="lib\asyncio\futures.py" />
+    <Content Include="lib\asyncio\locks.py" />
+    <Content Include="lib\asyncio\log.py" />
+    <Content Include="lib\asyncio\proactor_events.py" />
+    <Content Include="lib\asyncio\protocols.py" />
+    <Content Include="lib\asyncio\queues.py" />
+    <Content Include="lib\asyncio\selector_events.py" />
+    <Content Include="lib\asyncio\sslproto.py" />
+    <Content Include="lib\asyncio\streams.py" />
+    <Content Include="lib\asyncio\subprocess.py" />
+    <Content Include="lib\asyncio\tasks.py" />
+    <Content Include="lib\asyncio\test_utils.py" />
+    <Content Include="lib\asyncio\transports.py" />
+    <Content Include="lib\asyncio\unix_events.py" />
+    <Content Include="lib\asyncio\windows_events.py" />
+    <Content Include="lib\asyncio\windows_utils.py" />
+    <Content Include="lib\asyncio\__init__.py" />
+    <Content Include="lib\asyncore.py" />
+    <Content Include="lib\base64.py" />
+    <Content Include="lib\bdb.py" />
+    <Content Include="lib\binhex.py" />
+    <Content Include="lib\bisect.py" />
+    <Content Include="lib\bz2.py" />
+    <Content Include="lib\calendar.py" />
+    <Content Include="lib\cgi.py" />
+    <Content Include="lib\cgitb.py" />
+    <Content Include="lib\chunk.py" />
+    <Content Include="lib\cmd.py" />
+    <Content Include="lib\code.py" />
+    <Content Include="lib\codecs.py" />
+    <Content Include="lib\codeop.py" />
+    <Content Include="lib\collections\abc.py" />
+    <Content Include="lib\collections\__init__.py" />
+    <Content Include="lib\collections\__main__.py" />
+    <Content Include="lib\colorsys.py" />
+    <Content Include="lib\compileall.py" />
+    <Content Include="lib\concurrent\futures\process.py" />
+    <Content Include="lib\concurrent\futures\thread.py" />
+    <Content Include="lib\concurrent\futures\_base.py" />
+    <Content Include="lib\concurrent\futures\__init__.py" />
+    <Content Include="lib\concurrent\__init__.py" />
+    <Content Include="lib\configparser.py" />
+    <Content Include="lib\contextlib.py" />
+    <Content Include="lib\copy.py" />
+    <Content Include="lib\copyreg.py" />
+    <Content Include="lib\cProfile.py" />
+    <Content Include="lib\crypt.py" />
+    <Content Include="lib\csv.py" />
+    <Content Include="lib\ctypes\macholib\dyld.py" />
+    <Content Include="lib\ctypes\macholib\dylib.py" />
+    <Content Include="lib\ctypes\macholib\framework.py" />
+    <Content Include="lib\ctypes\macholib\__init__.py" />
+    <Content Include="lib\ctypes\util.py" />
+    <Content Include="lib\ctypes\wintypes.py" />
+    <Content Include="lib\ctypes\_endian.py" />
+    <Content Include="lib\ctypes\__init__.py" />
+    <Content Include="lib\curses\ascii.py" />
+    <Content Include="lib\curses\has_key.py" />
+    <Content Include="lib\curses\panel.py" />
+    <Content Include="lib\curses\textpad.py" />
+    <Content Include="lib\curses\__init__.py" />
+    <Content Include="lib\datetime.py" />
+    <Content Include="lib\dbm\dumb.py" />
+    <Content Include="lib\dbm\gnu.py" />
+    <Content Include="lib\dbm\ndbm.py" />
+    <Content Include="lib\dbm\__init__.py" />
+    <Content Include="lib\decimal.py" />
+    <Content Include="lib\difflib.py" />
+    <Content Include="lib\dis.py" />
+    <Content Include="lib\distutils\archive_util.py" />
+    <Content Include="lib\distutils\bcppcompiler.py" />
+    <Content Include="lib\distutils\ccompiler.py" />
+    <Content Include="lib\distutils\cmd.py" />
+    <Content Include="lib\distutils\command\bdist.py" />
+    <Content Include="lib\distutils\command\bdist_dumb.py" />
+    <Content Include="lib\distutils\command\bdist_msi.py" />
+    <Content Include="lib\distutils\command\bdist_rpm.py" />
+    <Content Include="lib\distutils\command\bdist_wininst.py" />
+    <Content Include="lib\distutils\command\build.py" />
+    <Content Include="lib\distutils\command\build_clib.py" />
+    <Content Include="lib\distutils\command\build_ext.py" />
+    <Content Include="lib\distutils\command\build_py.py" />
+    <Content Include="lib\distutils\command\build_scripts.py" />
+    <Content Include="lib\distutils\command\check.py" />
+    <Content Include="lib\distutils\command\clean.py" />
+    <Content Include="lib\distutils\command\config.py" />
+    <Content Include="lib\distutils\command\install.py" />
+    <Content Include="lib\distutils\command\install_data.py" />
+    <Content Include="lib\distutils\command\install_egg_info.py" />
+    <Content Include="lib\distutils\command\install_headers.py" />
+    <Content Include="lib\distutils\command\install_lib.py" />
+    <Content Include="lib\distutils\command\install_scripts.py" />
+    <Content Include="lib\distutils\command\register.py" />
+    <Content Include="lib\distutils\command\sdist.py" />
+    <Content Include="lib\distutils\command\upload.py" />
+    <Content Include="lib\distutils\command\wininst-10.0-amd64.exe" />
+    <Content Include="lib\distutils\command\wininst-10.0.exe" />
+    <Content Include="lib\distutils\command\wininst-6.0.exe" />
+    <Content Include="lib\distutils\command\wininst-7.1.exe" />
+    <Content Include="lib\distutils\command\wininst-8.0.exe" />
+    <Content Include="lib\distutils\command\wininst-9.0-amd64.exe" />
+    <Content Include="lib\distutils\command\wininst-9.0.exe" />
+    <Content Include="lib\distutils\command\__init__.py" />
+    <Content Include="lib\distutils\config.py" />
+    <Content Include="lib\distutils\core.py" />
+    <Content Include="lib\distutils\cygwinccompiler.py" />
+    <Content Include="lib\distutils\debug.py" />
+    <Content Include="lib\distutils\dep_util.py" />
+    <Content Include="lib\distutils\dir_util.py" />
+    <Content Include="lib\distutils\dist.py" />
+    <Content Include="lib\distutils\errors.py" />
+    <Content Include="lib\distutils\extension.py" />
+    <Content Include="lib\distutils\fancy_getopt.py" />
+    <Content Include="lib\distutils\filelist.py" />
+    <Content Include="lib\distutils\file_util.py" />
+    <Content Include="lib\distutils\log.py" />
+    <Content Include="lib\distutils\msvc9compiler.py" />
+    <Content Include="lib\distutils\msvccompiler.py" />
+    <Content Include="lib\distutils\spawn.py" />
+    <Content Include="lib\distutils\sysconfig.py" />
+    <Content Include="lib\distutils\text_file.py" />
+    <Content Include="lib\distutils\unixccompiler.py" />
+    <Content Include="lib\distutils\util.py" />
+    <Content Include="lib\distutils\version.py" />
+    <Content Include="lib\distutils\versionpredicate.py" />
+    <Content Include="lib\distutils\__init__.py" />
+    <Content Include="lib\doctest.py" />
+    <Content Include="lib\dummy_threading.py" />
+    <Content Include="lib\email\base64mime.py" />
+    <Content Include="lib\email\charset.py" />
+    <Content Include="lib\email\contentmanager.py" />
+    <Content Include="lib\email\encoders.py" />
+    <Content Include="lib\email\errors.py" />
+    <Content Include="lib\email\feedparser.py" />
+    <Content Include="lib\email\generator.py" />
+    <Content Include="lib\email\header.py" />
+    <Content Include="lib\email\headerregistry.py" />
+    <Content Include="lib\email\iterators.py" />
+    <Content Include="lib\email\message.py" />
+    <Content Include="lib\email\mime\application.py" />
+    <Content Include="lib\email\mime\audio.py" />
+    <Content Include="lib\email\mime\base.py" />
+    <Content Include="lib\email\mime\image.py" />
+    <Content Include="lib\email\mime\message.py" />
+    <Content Include="lib\email\mime\multipart.py" />
+    <Content Include="lib\email\mime\nonmultipart.py" />
+    <Content Include="lib\email\mime\text.py" />
+    <Content Include="lib\email\mime\__init__.py" />
+    <Content Include="lib\email\parser.py" />
+    <Content Include="lib\email\policy.py" />
+    <Content Include="lib\email\quoprimime.py" />
+    <Content Include="lib\email\utils.py" />
+    <Content Include="lib\email\_encoded_words.py" />
+    <Content Include="lib\email\_header_value_parser.py" />
+    <Content Include="lib\email\_parseaddr.py" />
+    <Content Include="lib\email\_policybase.py" />
+    <Content Include="lib\email\__init__.py" />
+    <Content Include="lib\encodings\aliases.py" />
+    <Content Include="lib\encodings\ascii.py" />
+    <Content Include="lib\encodings\base64_codec.py" />
+    <Content Include="lib\encodings\big5.py" />
+    <Content Include="lib\encodings\big5hkscs.py" />
+    <Content Include="lib\encodings\bz2_codec.py" />
+    <Content Include="lib\encodings\charmap.py" />
+    <Content Include="lib\encodings\cp037.py" />
+    <Content Include="lib\encodings\cp1006.py" />
+    <Content Include="lib\encodings\cp1026.py" />
+    <Content Include="lib\encodings\cp1125.py" />
+    <Content Include="lib\encodings\cp1140.py" />
+    <Content Include="lib\encodings\cp1250.py" />
+    <Content Include="lib\encodings\cp1251.py" />
+    <Content Include="lib\encodings\cp1252.py" />
+    <Content Include="lib\encodings\cp1253.py" />
+    <Content Include="lib\encodings\cp1254.py" />
+    <Content Include="lib\encodings\cp1255.py" />
+    <Content Include="lib\encodings\cp1256.py" />
+    <Content Include="lib\encodings\cp1257.py" />
+    <Content Include="lib\encodings\cp1258.py" />
+    <Content Include="lib\encodings\cp273.py" />
+    <Content Include="lib\encodings\cp424.py" />
+    <Content Include="lib\encodings\cp437.py" />
+    <Content Include="lib\encodings\cp500.py" />
+    <Content Include="lib\encodings\cp65001.py" />
+    <Content Include="lib\encodings\cp720.py" />
+    <Content Include="lib\encodings\cp737.py" />
+    <Content Include="lib\encodings\cp775.py" />
+    <Content Include="lib\encodings\cp850.py" />
+    <Content Include="lib\encodings\cp852.py" />
+    <Content Include="lib\encodings\cp855.py" />
+    <Content Include="lib\encodings\cp856.py" />
+    <Content Include="lib\encodings\cp857.py" />
+    <Content Include="lib\encodings\cp858.py" />
+    <Content Include="lib\encodings\cp860.py" />
+    <Content Include="lib\encodings\cp861.py" />
+    <Content Include="lib\encodings\cp862.py" />
+    <Content Include="lib\encodings\cp863.py" />
+    <Content Include="lib\encodings\cp864.py" />
+    <Content Include="lib\encodings\cp865.py" />
+    <Content Include="lib\encodings\cp866.py" />
+    <Content Include="lib\encodings\cp869.py" />
+    <Content Include="lib\encodings\cp874.py" />
+    <Content Include="lib\encodings\cp875.py" />
+    <Content Include="lib\encodings\cp932.py" />
+    <Content Include="lib\encodings\cp949.py" />
+    <Content Include="lib\encodings\cp950.py" />
+    <Content Include="lib\encodings\euc_jisx0213.py" />
+    <Content Include="lib\encodings\euc_jis_2004.py" />
+    <Content Include="lib\encodings\euc_jp.py" />
+    <Content Include="lib\encodings\euc_kr.py" />
+    <Content Include="lib\encodings\gb18030.py" />
+    <Content Include="lib\encodings\gb2312.py" />
+    <Content Include="lib\encodings\gbk.py" />
+    <Content Include="lib\encodings\hex_codec.py" />
+    <Content Include="lib\encodings\hp_roman8.py" />
+    <Content Include="lib\encodings\hz.py" />
+    <Content Include="lib\encodings\idna.py" />
+    <Content Include="lib\encodings\iso2022_jp.py" />
+    <Content Include="lib\encodings\iso2022_jp_1.py" />
+    <Content Include="lib\encodings\iso2022_jp_2.py" />
+    <Content Include="lib\encodings\iso2022_jp_2004.py" />
+    <Content Include="lib\encodings\iso2022_jp_3.py" />
+    <Content Include="lib\encodings\iso2022_jp_ext.py" />
+    <Content Include="lib\encodings\iso2022_kr.py" />
+    <Content Include="lib\encodings\iso8859_1.py" />
+    <Content Include="lib\encodings\iso8859_10.py" />
+    <Content Include="lib\encodings\iso8859_11.py" />
+    <Content Include="lib\encodings\iso8859_13.py" />
+    <Content Include="lib\encodings\iso8859_14.py" />
+    <Content Include="lib\encodings\iso8859_15.py" />
+    <Content Include="lib\encodings\iso8859_16.py" />
+    <Content Include="lib\encodings\iso8859_2.py" />
+    <Content Include="lib\encodings\iso8859_3.py" />
+    <Content Include="lib\encodings\iso8859_4.py" />
+    <Content Include="lib\encodings\iso8859_5.py" />
+    <Content Include="lib\encodings\iso8859_6.py" />
+    <Content Include="lib\encodings\iso8859_7.py" />
+    <Content Include="lib\encodings\iso8859_8.py" />
+    <Content Include="lib\encodings\iso8859_9.py" />
+    <Content Include="lib\encodings\johab.py" />
+    <Content Include="lib\encodings\koi8_r.py" />
+    <Content Include="lib\encodings\koi8_u.py" />
+    <Content Include="lib\encodings\latin_1.py" />
+    <Content Include="lib\encodings\mac_arabic.py" />
+    <Content Include="lib\encodings\mac_centeuro.py" />
+    <Content Include="lib\encodings\mac_croatian.py" />
+    <Content Include="lib\encodings\mac_cyrillic.py" />
+    <Content Include="lib\encodings\mac_farsi.py" />
+    <Content Include="lib\encodings\mac_greek.py" />
+    <Content Include="lib\encodings\mac_iceland.py" />
+    <Content Include="lib\encodings\mac_latin2.py" />
+    <Content Include="lib\encodings\mac_roman.py" />
+    <Content Include="lib\encodings\mac_romanian.py" />
+    <Content Include="lib\encodings\mac_turkish.py" />
+    <Content Include="lib\encodings\mbcs.py" />
+    <Content Include="lib\encodings\palmos.py" />
+    <Content Include="lib\encodings\ptcp154.py" />
+    <Content Include="lib\encodings\punycode.py" />
+    <Content Include="lib\encodings\quopri_codec.py" />
+    <Content Include="lib\encodings\raw_unicode_escape.py" />
+    <Content Include="lib\encodings\rot_13.py" />
+    <Content Include="lib\encodings\shift_jis.py" />
+    <Content Include="lib\encodings\shift_jisx0213.py" />
+    <Content Include="lib\encodings\shift_jis_2004.py" />
+    <Content Include="lib\encodings\tis_620.py" />
+    <Content Include="lib\encodings\undefined.py" />
+    <Content Include="lib\encodings\unicode_escape.py" />
+    <Content Include="lib\encodings\unicode_internal.py" />
+    <Content Include="lib\encodings\utf_16.py" />
+    <Content Include="lib\encodings\utf_16_be.py" />
+    <Content Include="lib\encodings\utf_16_le.py" />
+    <Content Include="lib\encodings\utf_32.py" />
+    <Content Include="lib\encodings\utf_32_be.py" />
+    <Content Include="lib\encodings\utf_32_le.py" />
+    <Content Include="lib\encodings\utf_7.py" />
+    <Content Include="lib\encodings\utf_8.py" />
+    <Content Include="lib\encodings\utf_8_sig.py" />
+    <Content Include="lib\encodings\uu_codec.py" />
+    <Content Include="lib\encodings\zlib_codec.py" />
+    <Content Include="lib\encodings\__init__.py" />
+    <Content Include="lib\ensurepip\_uninstall.py" />
+    <Content Include="lib\ensurepip\__init__.py" />
+    <Content Include="lib\ensurepip\__main__.py" />
+    <Content Include="lib\enum.py" />
+    <Content Include="lib\filecmp.py" />
+    <Content Include="lib\fileinput.py" />
+    <Content Include="lib\fnmatch.py" />
+    <Content Include="lib\formatter.py" />
+    <Content Include="lib\fractions.py" />
+    <Content Include="lib\ftplib.py" />
+    <Content Include="lib\functools.py" />
+    <Content Include="lib\genericpath.py" />
+    <Content Include="lib\getopt.py" />
+    <Content Include="lib\getpass.py" />
+    <Content Include="lib\gettext.py" />
+    <Content Include="lib\glob.py" />
+    <Content Include="lib\gzip.py" />
+    <Content Include="lib\hashlib.py" />
+    <Content Include="lib\heapq.py" />
+    <Content Include="lib\hmac.py" />
+    <Content Include="lib\html\entities.py" />
+    <Content Include="lib\html\parser.py" />
+    <Content Include="lib\html\__init__.py" />
+    <Content Include="lib\http\client.py" />
+    <Content Include="lib\http\cookiejar.py" />
+    <Content Include="lib\http\cookies.py" />
+    <Content Include="lib\http\server.py" />
+    <Content Include="lib\http\__init__.py" />
+    <Content Include="lib\imaplib.py" />
+    <Content Include="lib\imghdr.py" />
+    <Content Include="lib\imp.py" />
+    <Content Include="lib\importlib\abc.py" />
+    <Content Include="lib\importlib\machinery.py" />
+    <Content Include="lib\importlib\util.py" />
+    <Content Include="lib\importlib\_bootstrap.py" />
+    <Content Include="lib\importlib\__init__.py" />
+    <Content Include="lib\inspect.py" />
+    <Content Include="lib\io.py" />
+    <Content Include="lib\ipaddress.py" />
+    <Content Include="lib\json\decoder.py" />
+    <Content Include="lib\json\encoder.py" />
+    <Content Include="lib\json\scanner.py" />
+    <Content Include="lib\json\tool.py" />
+    <Content Include="lib\json\__init__.py" />
+    <Content Include="lib\keyword.py" />
+    <Content Include="lib\lib2to3\btm_matcher.py" />
+    <Content Include="lib\lib2to3\btm_utils.py" />
+    <Content Include="lib\lib2to3\fixer_base.py" />
+    <Content Include="lib\lib2to3\fixer_util.py" />
+    <Content Include="lib\lib2to3\fixes\fix_apply.py" />
+    <Content Include="lib\lib2to3\fixes\fix_asserts.py" />
+    <Content Include="lib\lib2to3\fixes\fix_basestring.py" />
+    <Content Include="lib\lib2to3\fixes\fix_buffer.py" />
+    <Content Include="lib\lib2to3\fixes\fix_callable.py" />
+    <Content Include="lib\lib2to3\fixes\fix_dict.py" />
+    <Content Include="lib\lib2to3\fixes\fix_except.py" />
+    <Content Include="lib\lib2to3\fixes\fix_exec.py" />
+    <Content Include="lib\lib2to3\fixes\fix_execfile.py" />
+    <Content Include="lib\lib2to3\fixes\fix_exitfunc.py" />
+    <Content Include="lib\lib2to3\fixes\fix_filter.py" />
+    <Content Include="lib\lib2to3\fixes\fix_funcattrs.py" />
+    <Content Include="lib\lib2to3\fixes\fix_future.py" />
+    <Content Include="lib\lib2to3\fixes\fix_getcwdu.py" />
+    <Content Include="lib\lib2to3\fixes\fix_has_key.py" />
+    <Content Include="lib\lib2to3\fixes\fix_idioms.py" />
+    <Content Include="lib\lib2to3\fixes\fix_import.py" />
+    <Content Include="lib\lib2to3\fixes\fix_imports.py" />
+    <Content Include="lib\lib2to3\fixes\fix_imports2.py" />
+    <Content Include="lib\lib2to3\fixes\fix_input.py" />
+    <Content Include="lib\lib2to3\fixes\fix_intern.py" />
+    <Content Include="lib\lib2to3\fixes\fix_isinstance.py" />
+    <Content Include="lib\lib2to3\fixes\fix_itertools.py" />
+    <Content Include="lib\lib2to3\fixes\fix_itertools_imports.py" />
+    <Content Include="lib\lib2to3\fixes\fix_long.py" />
+    <Content Include="lib\lib2to3\fixes\fix_map.py" />
+    <Content Include="lib\lib2to3\fixes\fix_metaclass.py" />
+    <Content Include="lib\lib2to3\fixes\fix_methodattrs.py" />
+    <Content Include="lib\lib2to3\fixes\fix_ne.py" />
+    <Content Include="lib\lib2to3\fixes\fix_next.py" />
+    <Content Include="lib\lib2to3\fixes\fix_nonzero.py" />
+    <Content Include="lib\lib2to3\fixes\fix_numliterals.py" />
+    <Content Include="lib\lib2to3\fixes\fix_operator.py" />
+    <Content Include="lib\lib2to3\fixes\fix_paren.py" />
+    <Content Include="lib\lib2to3\fixes\fix_print.py" />
+    <Content Include="lib\lib2to3\fixes\fix_raise.py" />
+    <Content Include="lib\lib2to3\fixes\fix_raw_input.py" />
+    <Content Include="lib\lib2to3\fixes\fix_reduce.py" />
+    <Content Include="lib\lib2to3\fixes\fix_reload.py" />
+    <Content Include="lib\lib2to3\fixes\fix_renames.py" />
+    <Content Include="lib\lib2to3\fixes\fix_repr.py" />
+    <Content Include="lib\lib2to3\fixes\fix_set_literal.py" />
+    <Content Include="lib\lib2to3\fixes\fix_standarderror.py" />
+    <Content Include="lib\lib2to3\fixes\fix_sys_exc.py" />
+    <Content Include="lib\lib2to3\fixes\fix_throw.py" />
+    <Content Include="lib\lib2to3\fixes\fix_tuple_params.py" />
+    <Content Include="lib\lib2to3\fixes\fix_types.py" />
+    <Content Include="lib\lib2to3\fixes\fix_unicode.py" />
+    <Content Include="lib\lib2to3\fixes\fix_urllib.py" />
+    <Content Include="lib\lib2to3\fixes\fix_ws_comma.py" />
+    <Content Include="lib\lib2to3\fixes\fix_xrange.py" />
+    <Content Include="lib\lib2to3\fixes\fix_xreadlines.py" />
+    <Content Include="lib\lib2to3\fixes\fix_zip.py" />
+    <Content Include="lib\lib2to3\fixes\__init__.py" />
+    <Content Include="lib\lib2to3\Grammar.txt" />
+    <Content Include="lib\lib2to3\main.py" />
+    <Content Include="lib\lib2to3\patcomp.py" />
+    <Content Include="lib\lib2to3\PatternGrammar.txt" />
+    <Content Include="lib\lib2to3\pgen2\conv.py" />
+    <Content Include="lib\lib2to3\pgen2\driver.py" />
+    <Content Include="lib\lib2to3\pgen2\grammar.py" />
+    <Content Include="lib\lib2to3\pgen2\literals.py" />
+    <Content Include="lib\lib2to3\pgen2\parse.py" />
+    <Content Include="lib\lib2to3\pgen2\pgen.py" />
+    <Content Include="lib\lib2to3\pgen2\token.py" />
+    <Content Include="lib\lib2to3\pgen2\tokenize.py" />
+    <Content Include="lib\lib2to3\pgen2\__init__.py" />
+    <Content Include="lib\lib2to3\pygram.py" />
+    <Content Include="lib\lib2to3\pytree.py" />
+    <Content Include="lib\lib2to3\refactor.py" />
+    <Content Include="lib\lib2to3\__init__.py" />
+    <Content Include="lib\lib2to3\__main__.py" />
+    <Content Include="lib\linecache.py" />
+    <Content Include="lib\locale.py" />
+    <Content Include="lib\logging\config.py" />
+    <Content Include="lib\logging\handlers.py" />
+    <Content Include="lib\logging\__init__.py" />
+    <Content Include="lib\lzma.py" />
+    <Content Include="lib\macpath.py" />
+    <Content Include="lib\macurl2path.py" />
+    <Content Include="lib\mailbox.py" />
+    <Content Include="lib\mailcap.py" />
+    <Content Include="lib\mimetypes.py" />
+    <Content Include="lib\modulefinder.py" />
+    <Content Include="lib\msilib\schema.py" />
+    <Content Include="lib\msilib\sequence.py" />
+    <Content Include="lib\msilib\text.py" />
+    <Content Include="lib\msilib\__init__.py" />
+    <Content Include="lib\multiprocessing\connection.py" />
+    <Content Include="lib\multiprocessing\context.py" />
+    <Content Include="lib\multiprocessing\dummy\connection.py" />
+    <Content Include="lib\multiprocessing\dummy\__init__.py" />
+    <Content Include="lib\multiprocessing\forkserver.py" />
+    <Content Include="lib\multiprocessing\heap.py" />
+    <Content Include="lib\multiprocessing\managers.py" />
+    <Content Include="lib\multiprocessing\pool.py" />
+    <Content Include="lib\multiprocessing\popen_fork.py" />
+    <Content Include="lib\multiprocessing\popen_forkserver.py" />
+    <Content Include="lib\multiprocessing\popen_spawn_posix.py" />
+    <Content Include="lib\multiprocessing\popen_spawn_win32.py" />
+    <Content Include="lib\multiprocessing\process.py" />
+    <Content Include="lib\multiprocessing\queues.py" />
+    <Content Include="lib\multiprocessing\reduction.py" />
+    <Content Include="lib\multiprocessing\resource_sharer.py" />
+    <Content Include="lib\multiprocessing\semaphore_tracker.py" />
+    <Content Include="lib\multiprocessing\sharedctypes.py" />
+    <Content Include="lib\multiprocessing\spawn.py" />
+    <Content Include="lib\multiprocessing\synchronize.py" />
+    <Content Include="lib\multiprocessing\util.py" />
+    <Content Include="lib\multiprocessing\__init__.py" />
+    <Content Include="lib\netrc.py" />
+    <Content Include="lib\nntplib.py" />
+    <Content Include="lib\ntpath.py" />
+    <Content Include="lib\nturl2path.py" />
+    <Content Include="lib\numbers.py" />
+    <Content Include="lib\opcode.py" />
+    <Content Include="lib\operator.py" />
+    <Content Include="lib\optparse.py" />
+    <Content Include="lib\os.py" />
+    <Content Include="lib\pathlib.py" />
+    <Content Include="lib\pdb.py" />
+    <Content Include="lib\pickle.py" />
+    <Content Include="lib\pickletools.py" />
+    <Content Include="lib\pipes.py" />
+    <Content Include="lib\pkgutil.py" />
+    <Content Include="lib\platform.py" />
+    <Content Include="lib\plistlib.py" />
+    <Content Include="lib\poplib.py" />
+    <Content Include="lib\posixpath.py" />
+    <Content Include="lib\pprint.py" />
+    <Content Include="lib\profile.py" />
+    <Content Include="lib\pstats.py" />
+    <Content Include="lib\pty.py" />
+    <Content Include="lib\pyclbr.py" />
+    <Content Include="lib\pydoc.py" />
+    <Content Include="lib\pydoc_data\topics.py" />
+    <Content Include="lib\pydoc_data\_pydoc.css" />
+    <Content Include="lib\pydoc_data\__init__.py" />
+    <Content Include="lib\py_compile.py" />
+    <Content Include="lib\queue.py" />
+    <Content Include="lib\quopri.py" />
+    <Content Include="lib\random.py" />
+    <Content Include="lib\re.py" />
+    <Content Include="lib\reprlib.py" />
+    <Content Include="lib\rlcompleter.py" />
+    <Content Include="lib\runpy.py" />
+    <Content Include="lib\sched.py" />
+    <Content Include="lib\selectors.py" />
+    <Content Include="lib\shelve.py" />
+    <Content Include="lib\shlex.py" />
+    <Content Include="lib\shutil.py" />
+    <Content Include="lib\site.py" />
+    <Content Include="lib\smtpd.py" />
+    <Content Include="lib\smtplib.py" />
+    <Content Include="lib\sndhdr.py" />
+    <Content Include="lib\socket.py" />
+    <Content Include="lib\socketserver.py" />
+    <Content Include="lib\sqlite3\dbapi2.py" />
+    <Content Include="lib\sqlite3\dump.py" />
+    <Content Include="lib\sqlite3\__init__.py" />
+    <Content Include="lib\sre_compile.py" />
+    <Content Include="lib\sre_constants.py" />
+    <Content Include="lib\sre_parse.py" />
+    <Content Include="lib\ssl.py" />
+    <Content Include="lib\stat.py" />
+    <Content Include="lib\statistics.py" />
+    <Content Include="lib\string.py" />
+    <Content Include="lib\stringprep.py" />
+    <Content Include="lib\struct.py" />
+    <Content Include="lib\subprocess.py" />
+    <Content Include="lib\sunau.py" />
+    <Content Include="lib\symbol.py" />
+    <Content Include="lib\symtable.py" />
+    <Content Include="lib\sysconfig.py" />
+    <Content Include="lib\tabnanny.py" />
+    <Content Include="lib\tarfile.py" />
+    <Content Include="lib\telnetlib.py" />
+    <Content Include="lib\tempfile.py" />
+    <Content Include="lib\textwrap.py" />
+    <Content Include="lib\this.py" />
+    <Content Include="lib\threading.py" />
+    <Content Include="lib\timeit.py" />
+    <Content Include="lib\token.py" />
+    <Content Include="lib\tokenize.py" />
+    <Content Include="lib\trace.py" />
+    <Content Include="lib\traceback.py" />
+    <Content Include="lib\tracemalloc.py" />
+    <Content Include="lib\tty.py" />
+    <Content Include="lib\turtle.py" />
+    <Content Include="lib\turtledemo\bytedesign.py" />
+    <Content Include="lib\turtledemo\chaos.py" />
+    <Content Include="lib\turtledemo\clock.py" />
+    <Content Include="lib\turtledemo\colormixer.py" />
+    <Content Include="lib\turtledemo\forest.py" />
+    <Content Include="lib\turtledemo\fractalcurves.py" />
+    <Content Include="lib\turtledemo\lindenmayer.py" />
+    <Content Include="lib\turtledemo\minimal_hanoi.py" />
+    <Content Include="lib\turtledemo\nim.py" />
+    <Content Include="lib\turtledemo\paint.py" />
+    <Content Include="lib\turtledemo\peace.py" />
+    <Content Include="lib\turtledemo\penrose.py" />
+    <Content Include="lib\turtledemo\planet_and_moon.py" />
+    <Content Include="lib\turtledemo\round_dance.py" />
+    <Content Include="lib\turtledemo\tree.py" />
+    <Content Include="lib\turtledemo\two_canvases.py" />
+    <Content Include="lib\turtledemo\wikipedia.py" />
+    <Content Include="lib\turtledemo\yinyang.py" />
+    <Content Include="lib\turtledemo\__init__.py" />
+    <Content Include="lib\turtledemo\__main__.py" />
+    <Content Include="lib\types.py" />
+    <Content Include="lib\unittest\case.py" />
+    <Content Include="lib\unittest\loader.py" />
+    <Content Include="lib\unittest\main.py" />
+    <Content Include="lib\unittest\mock.py" />
+    <Content Include="lib\unittest\result.py" />
+    <Content Include="lib\unittest\runner.py" />
+    <Content Include="lib\unittest\signals.py" />
+    <Content Include="lib\unittest\suite.py" />
+    <Content Include="lib\unittest\util.py" />
+    <Content Include="lib\unittest\__init__.py" />
+    <Content Include="lib\unittest\__main__.py" />
+    <Content Include="lib\urllib\error.py" />
+    <Content Include="lib\urllib\parse.py" />
+    <Content Include="lib\urllib\request.py" />
+    <Content Include="lib\urllib\response.py" />
+    <Content Include="lib\urllib\robotparser.py" />
+    <Content Include="lib\urllib\__init__.py" />
+    <Content Include="lib\uu.py" />
+    <Content Include="lib\uuid.py" />
+    <Content Include="lib\venv\scripts\posix\activate.csh" />
+    <Content Include="lib\venv\__init__.py" />
+    <Content Include="lib\venv\__main__.py" />
+    <Content Include="lib\warnings.py" />
+    <Content Include="lib\wave.py" />
+    <Content Include="lib\weakref.py" />
+    <Content Include="lib\webbrowser.py" />
+    <Content Include="lib\wpf.py" />
+    <Content Include="lib\wsgiref\handlers.py" />
+    <Content Include="lib\wsgiref\headers.py" />
+    <Content Include="lib\wsgiref\simple_server.py" />
+    <Content Include="lib\wsgiref\util.py" />
+    <Content Include="lib\wsgiref\validate.py" />
+    <Content Include="lib\wsgiref\__init__.py" />
+    <Content Include="lib\xdrlib.py" />
+    <Content Include="lib\xmlrpc\client.py" />
+    <Content Include="lib\xmlrpc\server.py" />
+    <Content Include="lib\xmlrpc\__init__.py" />
+    <Content Include="lib\xml\dom\domreg.py" />
+    <Content Include="lib\xml\dom\expatbuilder.py" />
+    <Content Include="lib\xml\dom\minicompat.py" />
+    <Content Include="lib\xml\dom\minidom.py" />
+    <Content Include="lib\xml\dom\NodeFilter.py" />
+    <Content Include="lib\xml\dom\pulldom.py" />
+    <Content Include="lib\xml\dom\xmlbuilder.py" />
+    <Content Include="lib\xml\dom\__init__.py" />
+    <Content Include="lib\xml\etree\cElementTree.py" />
+    <Content Include="lib\xml\etree\ElementInclude.py" />
+    <Content Include="lib\xml\etree\ElementPath.py" />
+    <Content Include="lib\xml\etree\ElementTree.py" />
+    <Content Include="lib\xml\etree\__init__.py" />
+    <Content Include="lib\xml\parsers\expat.py" />
+    <Content Include="lib\xml\parsers\__init__.py" />
+    <Content Include="lib\xml\sax\expatreader.py" />
+    <Content Include="lib\xml\sax\handler.py" />
+    <Content Include="lib\xml\sax\saxutils.py" />
+    <Content Include="lib\xml\sax\xmlreader.py" />
+    <Content Include="lib\xml\sax\_exceptions.py" />
+    <Content Include="lib\xml\sax\__init__.py" />
+    <Content Include="lib\xml\__init__.py" />
+    <Content Include="lib\zipfile.py" />
+    <Content Include="lib\_bootlocale.py" />
+    <Content Include="lib\_collections_abc.py" />
+    <Content Include="lib\_compat_pickle.py" />
+    <Content Include="lib\_dummy_thread.py" />
+    <Content Include="lib\_markupbase.py" />
+    <Content Include="lib\_osx_support.py" />
+    <Content Include="lib\_pyio.py" />
+    <Content Include="lib\_sitebuiltins.py" />
+    <Content Include="lib\_strptime.py" />
+    <Content Include="lib\_threading_local.py" />
+    <Content Include="lib\_weakrefset.py" />
+    <Content Include="lib\__future__.py" />
+    <Content Include="lib\__phello__.foo.py" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="lib\venv\scripts\posix\activate.fish" />
+    <Content Include="lib\venv\scripts\posix\activate" />
+    <Content Include="lib\venv\scripts\nt\deactivate.bat" />
+    <Content Include="lib\venv\scripts\nt\Activate.ps1" />
+    <Content Include="lib\venv\scripts\nt\activate.bat" />
+    <Content Include="lib\turtledemo\turtle.cfg" />
+    <Content Include="lib\site-packages\README" />
+    <Content Include="lib\ensurepip\_bundled\setuptools-28.8.0-py2.py3-none-any.whl" />
+    <Content Include="lib\ensurepip\_bundled\pip-9.0.1-py2.py3-none-any.whl" />
+    <Content Include="lib\email\architecture.rst" />
+    <Content Include="lib\distutils\README" />
+    <Content Include="lib\distutils\command\command_template" />
+    <Content Include="lib\ctypes\macholib\README.ctypes" />
+    <Content Include="lib\ctypes\macholib\fetch_macholib.bat" />
+    <Content Include="lib\ctypes\macholib\fetch_macholib" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58208</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44382/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
